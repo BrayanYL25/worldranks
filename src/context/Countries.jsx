@@ -18,6 +18,8 @@ const reducer = (state, action) => {
 
     return payload.filter(({ region }) => regions.some(r => r === region))
   } else if (type === ACTIONS.SEARCH) {
+    if (search === '') return payload
+
     return payload.filter(c => c.name === search || c.region === search || c.subregion === search)
   }
 }

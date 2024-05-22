@@ -16,7 +16,7 @@ export default function Home () {
         <Search result={state.length} />
         <Controller />
         <Table data={state} />
-        <Debugger />
+        {/* <Debugger /> */}
       </section>
     </main>
   )
