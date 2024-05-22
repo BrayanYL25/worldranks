@@ -1,19 +1,11 @@
 import { createContext, useEffect, useReducer, useState } from 'react'
 import getCountries from '../utils/getCountries'
-import { REGION } from '../consts/consts'
-
-export const ACTIONS = {
-  SORT_POPULATION: 'SORT_POPULATION',
-  SORT_ALPHABET: 'SORT_ALPHABET',
-  REGION: 'REGION',
-  TYPE: 'TYPE',
-  INIT: 'INIT'
-}
+import { ACTIONS } from '../consts/consts'
 
 export const Countries = createContext()
 
 const reducer = (state, action) => {
-  const { type, payload, regions } = action
+  const { type, payload, search, regions } = action
 
   if (type === ACTIONS.INIT) {
     return payload.sort((a, b) => b.population - a.population)
@@ -22,9 +14,11 @@ const reducer = (state, action) => {
   } else if (type === ACTIONS.SORT_ALPHABET) {
     return [...state].sort((a, b) => a.name < b.name ? -1 : 1)
   } else if (type === ACTIONS.REGION) {
-    if (regions[0] === REGION.ALL) return payload
+    if (regions.length === 0) return payload
 
     return payload.filter(({ region }) => regions.some(r => r === region))
+  } else if (type === ACTIONS.SEARCH) {
+    return payload.filter(c => c.name === search || c.region === search || c.subregion === search)
   }
 }
 
@@ -45,17 +39,23 @@ export function Provider ({ children }) {
 
   const filterRegion = (reg) => {
     setRegion(prev => {
+      const newRegion = [...prev]
       const index = prev.findIndex(r => r === reg)
 
-      if (index > -1) {
-        const newRegion = [...prev]
+      if (index !== -1) {
         newRegion.splice(index, 1)
 
-        return newRegion.length === 0 ? [REGION.ALL] : newRegion
+        return newRegion
       }
 
       return [...prev, reg]
     })
+  }
+
+  const handleSearch = (event) => {
+    event.preventDefault()
+
+    dispatch({ type: ACTIONS.SEARCH, payload: initial, search: event.target.search.value })
   }
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export function Provider ({ children }) {
   }, [region])
 
   return (
-    <Countries.Provider value={{ state, init, sortPopulation, sortAlphabet, filterRegion }}>
+    <Countries.Provider value={{ state, region, init, sortPopulation, sortAlphabet, filterRegion, handleSearch }}>
       {children}
     </Countries.Provider>
   )

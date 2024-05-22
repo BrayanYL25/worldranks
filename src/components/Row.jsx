@@ -10,7 +10,7 @@ export default function Row ({ img, alt, name, population, area, region }) {
           <img src={img} alt={alt} className='w-[80px] rounded-lg my-3' />
         </Link>
       </td>
-      <td className='w-[20%] text-center text-base'>{name}</td>
+      <td className='text-center text-base'>{name}</td>
       <td className='text-center text-base'>{population}</td>
       <td className='text-center text-base'>{area}</td>
       <td className='text-center text-base'>{region}</td>

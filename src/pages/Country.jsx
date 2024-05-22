@@ -24,7 +24,7 @@ export default function Country () {
         <h2 className='text-smoke text-2xl mt-[-30px]'>{country.name}</h2>
         <h3 className='text-smoke'>{country.oficial}</h3>
 
-        <div className='flex text-smoke justify-around gap-7 my-3'>
+        <div className='flex lg:flex-row flex-col text-smoke justify-around gap-7 my-3'>
           <div className='text-sm flex rounded-lg gap-2 py-2 px-4 bg-stone'>
             <p>Population</p>
             <p>{country.population}</p>

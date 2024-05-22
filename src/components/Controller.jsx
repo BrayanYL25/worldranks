@@ -22,7 +22,7 @@ export default function Controller () {
   }
 
   return (
-    <div className='col-start-1 col-span-3 flex flex-col pr-4'>
+    <div className='lg:col-start-1 lg:col-span-3 col-start-1 col-span-12 flex flex-col pr-4'>
       <label htmlFor='sorting' className='text-graphite font-semibold'>Sort by</label>
       <select name='sorting' id='sorting' onChange={sortHandle} className='bg-transparent text-smoke border-2 border-stone rounded-2xl p-3'>
         <option value={VALUES.POPULATION} defaultValue>Population</option>
