@@ -13,6 +13,6 @@ export default function ButtonFilter ({ country }) {
   const styles = clicked ? 'bg-stone text-smoke' : 'bg-transparent text-graphite'
 
   return (
-    <button className={`px-3 py-2 rounded-2xl ${styles}`} onClick={handleClick}>{country}</button>
+    <button className={`px-3 py-2 font-semibold rounded-2xl ${styles}`} onClick={handleClick}>{country}</button>
   )
 }

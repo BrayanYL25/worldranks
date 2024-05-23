@@ -1,10 +1,11 @@
 export const REGION = {
   ALL: 'all',
   AMERICAS: 'Americas',
-  ANTARTIC: 'Antartic',
+  ANTARTIC: 'Antarctic',
   AFRICA: 'Africa',
   ASIA: 'Asia',
-  EUROPE: 'Europe'
+  EUROPE: 'Europe',
+  OCEANIA: 'Oceania'
 }
 
 export const ACTIONS = {
