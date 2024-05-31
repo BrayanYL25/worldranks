@@ -6,8 +6,6 @@ import Country from './pages/Country'
 import { Provider } from './context/Countries'
 import getCountries from './utils/getCountries'
 
-//  react router docs: https://reactrouter.com/en/main/start/overview
-
 const root = createRoot(document.getElementById('app'))
 const routes = createBrowserRouter([
   {

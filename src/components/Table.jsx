@@ -9,8 +9,8 @@ export default function Table ({ data }) {
           <th className='pb-4 text-sm font-medium text-center'>Flag</th>
           <th className='pb-4 text-sm font-medium text-center'>Name</th>
           <th className='pb-4 text-sm font-medium text-center'>Population</th>
-          <th className='pb-4 text-sm font-medium text-center'>Area (km<sup>2</sup>)</th>
-          <th className='pb-4 text-sm font-medium text-center'>Region</th>
+          <th className='pb-4 text-sm font-medium text-center hidden xxs:table-cell'>Area (km<sup>2</sup>)</th>
+          <th className='pb-4 text-sm font-medium text-center hidden xs:table-cell'>Region</th>
         </tr>
       </thead>
       <tbody>

@@ -63,7 +63,10 @@ export function Provider ({ children }) {
   useEffect(() => {
     getCountries()
       .then(setInitial)
-      .catch(error => console.error(error))
+      .catch(error => {
+        console.error(error)
+        setInitial([])
+      })
   }, [])
 
   useEffect(() => init(initial), [initial])

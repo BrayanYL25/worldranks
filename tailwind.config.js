@@ -17,6 +17,10 @@ export default {
       },
       fontFamily: {
         vietnampro: '"Be Vietnam Pro"'
+      },
+      screens: {
+        'xs': '525px',
+        'xxs': '425px'
       }
     }
   },
