@@ -4,7 +4,7 @@ import Table from '../components/Table'
 import Controller from '../components/Controller'
 import { useContext } from 'react'
 import { Countries } from '../context/Countries'
-// import Debugger from '../components/Debugger'
+import Debugger from '../components/Debugger'
 
 export default function Home () {
   const { state } = useContext(Countries)
@@ -16,7 +16,7 @@ export default function Home () {
         <Search result={state.length} />
         <Controller />
         <Table data={state} />
-        {/* <Debugger /> */}
+        <Debugger />
       </section>
     </main>
   )

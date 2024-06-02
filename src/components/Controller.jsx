@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { Countries } from '../context/Countries'
 import { REGION } from '../consts/consts'
 import ButtonFilter from './ButtonFilter'
@@ -9,9 +9,9 @@ const VALUES = {
 }
 
 export default function Controller () {
-  const { sortPopulation, sortAlphabet } = useContext(Countries)
-  // const [independent, setIndependent] = useState(false)
-  // const [unmember, setUnmember] = useState(false)
+  const { sortPopulation, sortAlphabet, filterIndependent, filterUnMember } = useContext(Countries)
+  const independent = useRef()
+  const unmember = useRef()
 
   const sortHandle = (e) => {
     const { target } = e
@@ -44,11 +44,11 @@ export default function Controller () {
       <h2 className='mt-4 mb-2 text-graphite font-semibold'>Status</h2>
       <div className='flex gap-3 flex-col'>
         <div className='flex items-center gap-2 text-smoke'>
-          <input type='checkbox' name='unitednations' id='unitednations' className='bg-transparent rounded-md' /><p>Member of United Nations</p>
+          <input type='checkbox' ref={unmember} name='unitednations' id='unitednations' className='bg-transparent rounded-md' onClick={() => filterUnMember({ unmember: unmember.current.checked })} /><p>Member of United Nations</p>
         </div>
 
         <div className='flex items-center gap-2 text-smoke'>
-          <input type='checkbox' name='independent' id='independent' className='bg-transparent rounded-md' /><p>Independent</p>
+          <input type='checkbox' ref={independent} name='independent' id='independent' className='bg-transparent rounded-md' onClick={() => filterIndependent({ independent: independent.current.checked })} /><p>Independent</p>
         </div>
       </div>
     </div>

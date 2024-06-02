@@ -22,21 +22,17 @@ const reducer = (state, action) => {
 
     return payload.filter(c => c.name === search || c.region === search || c.subregion === search)
   } else if (type === ACTIONS.INDEPENDENT) {
-    if (!independent) {
-      return [...state]
-    }
+    if (!independent) return payload
 
     return regions.length === 0
-      ? [...state].filter(country => country.independent)
-      : payload.filter(country => country.independent)
+      ? [...state].filter(country => country.independent === independent)
+      : payload.filter(country => country.independent === independent)
   } else if (type === ACTIONS.UNMEMBER) {
-    if (!unmember) {
-      return [...state]
-    }
+    if (!unmember) return payload
 
     return regions.length === 0
-      ? [...state].filter(country => country.unmember)
-      : payload.filter(country => country.unmember)
+      ? [...state].filter(country => country.unMember === unmember)
+      : payload.filter(country => country.unMember === unmember)
   }
 }
 
@@ -71,11 +67,11 @@ export function Provider ({ children }) {
   }
 
   const filterIndependent = ({ independent }) => {
-    dispatch({ type: ACTIONS.SEARCH, payload: initial, independent })
+    dispatch({ type: ACTIONS.INDEPENDENT, payload: initial, regions: region, independent })
   }
 
   const filterUnMember = ({ unmember }) => {
-    dispatch({ type: ACTIONS.SEARCH, payload: initial, unmember })
+    dispatch({ type: ACTIONS.UNMEMBER, payload: initial, regions: region, unmember })
   }
 
   const handleSearch = (event) => {
