@@ -2,11 +2,11 @@ import { useContext, useState } from 'react'
 import { Countries } from '../context/Countries'
 
 export default function ButtonFilter ({ country }) {
-  const { filterRegion } = useContext(Countries)
+  const { filterByRegion } = useContext(Countries)
   const [clicked, setClicked] = useState(false)
 
   const handleClick = () => {
-    filterRegion(country)
+    filterByRegion(country)
     setClicked(prev => !prev)
   }
 
