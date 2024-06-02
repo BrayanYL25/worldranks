@@ -5,7 +5,7 @@ import { ACTIONS } from '../consts/consts'
 export const Countries = createContext()
 
 const reducer = (state, action) => {
-  const { type, payload, search, regions } = action
+  const { type, payload, search, regions, independent, unmember } = action
 
   if (type === ACTIONS.INIT) {
     return payload.sort((a, b) => b.population - a.population)
@@ -21,6 +21,22 @@ const reducer = (state, action) => {
     if (search === '') return payload
 
     return payload.filter(c => c.name === search || c.region === search || c.subregion === search)
+  } else if (type === ACTIONS.INDEPENDENT) {
+    if (!independent) {
+      return [...state]
+    }
+
+    return regions.length === 0
+      ? [...state].filter(country => country.independent)
+      : payload.filter(country => country.independent)
+  } else if (type === ACTIONS.UNMEMBER) {
+    if (!unmember) {
+      return [...state]
+    }
+
+    return regions.length === 0
+      ? [...state].filter(country => country.unmember)
+      : payload.filter(country => country.unmember)
   }
 }
 
@@ -54,6 +70,14 @@ export function Provider ({ children }) {
     })
   }
 
+  const filterIndependent = ({ independent }) => {
+    dispatch({ type: ACTIONS.SEARCH, payload: initial, independent })
+  }
+
+  const filterUnMember = ({ unmember }) => {
+    dispatch({ type: ACTIONS.SEARCH, payload: initial, unmember })
+  }
+
   const handleSearch = (event) => {
     event.preventDefault()
 
@@ -76,7 +100,7 @@ export function Provider ({ children }) {
   }, [region])
 
   return (
-    <Countries.Provider value={{ state, region, init, sortPopulation, sortAlphabet, filterRegion, handleSearch }}>
+    <Countries.Provider value={{ state, region, init, sortPopulation, sortAlphabet, filterRegion, handleSearch, filterIndependent, filterUnMember }}>
       {children}
     </Countries.Provider>
   )

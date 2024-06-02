@@ -10,6 +10,8 @@ const VALUES = {
 
 export default function Controller () {
   const { sortPopulation, sortAlphabet } = useContext(Countries)
+  // const [independent, setIndependent] = useState(false)
+  // const [unmember, setUnmember] = useState(false)
 
   const sortHandle = (e) => {
     const { target } = e

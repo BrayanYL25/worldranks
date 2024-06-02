@@ -19,8 +19,8 @@ export default {
         vietnampro: '"Be Vietnam Pro"'
       },
       screens: {
-        'xs': '525px',
-        'xxs': '425px'
+        xs: '525px',
+        xxs: '425px'
       }
     }
   },
