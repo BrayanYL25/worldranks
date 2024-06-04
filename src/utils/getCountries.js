@@ -1,4 +1,4 @@
-import quantityParser from "./quantityParser"
+import quantityParser from './quantityParser'
 
 export default async function getCountries () {
   try {
@@ -9,9 +9,9 @@ export default async function getCountries () {
       id: crypto.randomUUID(),
       img: flag,
       alt: `${name}'s flag`,
-      name: name,
+      name,
       // oficial: name.official,
-      population: quantityParser(population),
+      population,
       capital,
       borders: borders?.map(border => countries?.find(({ fifa }) => fifa === border)),
       region,
@@ -23,6 +23,6 @@ export default async function getCountries () {
       unMember
     }))
   } catch (error) {
-    throw error
+    console.error(error)
   }
 }

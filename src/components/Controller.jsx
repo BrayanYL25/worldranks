@@ -1,8 +1,7 @@
 import { useContext, useRef } from 'react'
 import { Countries } from '../context/Countries'
-import { REGION } from '../consts/consts'
+import { REGION, ACTIONS } from '../consts/consts'
 import ButtonFilter from './ButtonFilter'
-import { ACTIONS } from '../consts/consts'
 
 export default function Controller () {
   const { sort, filterBy } = useContext(Countries)

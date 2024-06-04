@@ -1,3 +1,4 @@
+import quantityParser from '../utils/quantityParser'
 import NotFound from './NotFound'
 import Row from './Row'
 
@@ -19,7 +20,7 @@ export default function Table ({ data }) {
         }
         {
           data.length > 0 && data.map(({ id, img, alt, name, population, region, area }) => (
-            <Row key={id} img={img} alt={alt} name={name} population={population} region={region} area={area} />
+            <Row key={id} img={img} alt={alt} name={name} population={quantityParser(population)} region={region} area={area} />
           ))
         }
       </tbody>
