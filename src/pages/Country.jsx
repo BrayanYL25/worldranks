@@ -18,12 +18,12 @@ export default function Country () {
   return (
     <main className='min-h-screen bg-midnight font-vietnampro'>
       <Header />
-      <section className='w-[100%] sm:w-[50%] pt-4 pb-10 mx-auto bg-midnight rounded-xl relative bottom-10 border-[0.2px] border-graphite flex flex-col items-center mb-5'>
+      <section className='w-[100%] sm:w-[50%] pt-4 pb-10 mx-auto bg-midnight sm:rounded-xl relative bottom-10 sm:border-[0.2px] border-graphite flex flex-col items-center mb-5'>
         <img src={country.img} alt='Pais' className='w-[200px] mx-auto relative bottom-[50px] rounded-xl' />
         <h2 className='text-smoke text-2xl mt-[-30px]'>{country.name}</h2>
         {/* <h3 className='text-smoke'>{country.oficial}</h3> */}
 
-        <div className='flex flex-row sm:flex-col lg:flex-row text-smoke justify-around gap-7 my-3 mb-6'>
+        <div className='flex flex-row flex-wrap sm:flex-col lg:flex-row text-smoke justify-around gap-7 my-3 mb-6'>
           <div className='text-sm flex items-center justify-between rounded-lg gap-2 py-3 px-5 bg-stone'>
             <p className='pr-3 relative h-[160%] flex items-center border-r border-midnight'>Population</p>
             <p>{country.population}</p>
