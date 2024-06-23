@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        worldRank: 'url("/hero-image-wr.jpg")'
+        worldRank: 'url("/hero-image-wr.webp")'
       },
       colors: {
         midnight: '#1B1D1F',
