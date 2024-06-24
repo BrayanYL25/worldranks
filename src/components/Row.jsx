@@ -8,9 +8,11 @@ export default function Row ({ img, alt, name, population, area, region }) {
       <td className='flex justify-center my-3'>
         <Link to={dynamicPath}>
           <img
+            loading='lazy'
             src={img}
             alt={alt}
-            className='w-[100px] h-auto rounded-lg my-0'
+            width={100}
+            className='rounded-lg my-0'
           />
         </Link>
       </td>
