@@ -1,12 +1,5 @@
-Sort by:
-- Population [Default]
-- Alphabetical order
+# WORLDRANKS PAGE
 
-Filter:
-- Region (Continent)
-- Member of United Nations
-- Independent
-- Search bar:
-	- Name
-	- Regions
-	- Subregion
+## USAGE
+
+First, execute `npm install` to install all dependencies. Then, execute `npm run dev`
